@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "easinotate"
+version = "1.0.0"
+description = "Modern image annotation framework with bounding boxes, hierarchical labels, and multi-format export."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+authors = [
+    { name = "Easinotate contributors" }
+]
+keywords = ["annotation", "computer-vision", "bounding-box", "dataset", "labeling", "coco", "yolo", "voc"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+dependencies = [
+    "PyQt6>=6.5,<7",
+    "Pillow>=10.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "PyInstaller>=6.0",
+]
+
+[project.gui-scripts]
+easinotate = "easinotate.main:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["easinotate*"]
+
+[tool.setuptools.package-data]
+easinotate = ["resources/*.png", "resources/*.ico"]
